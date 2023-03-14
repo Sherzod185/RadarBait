@@ -198,7 +198,7 @@ const App = () => {
             )}
           </div>
         </div>
-  <Edit qoidabuzar={qoidabuzar} setQoidabuzar={setQoidabuzar} EditButton={EditButton} />
+  <Edit qoidabuzar={qoidabuzar} removeQoidabuzar={removeQoidabuzar} EditButton={EditButton} />
       </div>
     </div>
   );
