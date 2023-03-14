@@ -1,0 +1,60 @@
+body{
+  background-color: #024c62;
+  position: relative;
+}
+.market{
+  background-color: rgba(3, 156, 167, 0.54);
+  margin: 15px;
+  border-radius: 15px;
+  padding: 5px;
+}
+.p-4, .modal-footer, .modal-header{
+  background-color:rgba(4, 77, 83, 0.95);
+}
+.col{
+  margin-bottom: 10px;
+}
+.ainput{
+  background-color: #ffffff73;
+}
+.ainput:focus{
+  background-color: #ffffff9d;
+
+}
+.ainput::placeholder, .form-control::placeholder{
+color: #ffffffca;
+}
+.value{
+  display: block;
+  background-color: rgb(15, 15, 78);
+  color: #fff;
+  padding: 2px 6px;
+  width: 85px;
+  border-radius: 5px;
+  font-weight: 600;
+  letter-spacing: 1.3px;
+  text-align: center;
+}
+.card{
+  background-color: rgb(2, 51, 82);
+}
+.title{
+  color: rgb(1, 253, 232);
+  text-align: center;
+}
+.title span{
+  color: rgb(249, 241, 3);
+}
+.bx-radar{
+  color: red;
+}
+button{
+  cursor: pointer;
+}
+*{
+  color:#fff
+}
+.img-fluid{
+  width:250px ;
+  border-radius: 8px;
+}
