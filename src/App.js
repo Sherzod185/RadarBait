@@ -1,26 +1,24 @@
 import React, { useState, useRef } from "react";
 import currentsongs from "../src/audio/kulish.ogg";
 import goodJob from "../src/audio/success-1-6297.mp3";
-import Edit from "./Edit";
+import Edit from "./EditDeleteModal";
+import { nanoid } from "@reduxjs/toolkit";
 const App = () => {
   const lefts = ["1000px", "800px", "700px"];
   const rights = ["0", "100px", "150px"];
-  const [qoidabuzar, setQoidabuzar] = useState([
-    { name: "Chingiz", age: 21, carName: "BMW X7", fee: 35 },
-    { name: "Asliddin", age: 25, carName: "Malibu", fee: 45 },
-    { name: "Samandar", age: 30, carName: "Ferrari", fee: 40 },
-    { name: "Behzod", age: 23, carName: "Rolls Royce", fee: 38 },
-    { name: "Sherzod", age: 22, carName: "Lamborghini", fee: 12 },
-  ]);
+  const [qoidabuzar, setQoidabuzar] = useState([]);
+  const [value, setValue] = useState({
+    name: "",
+    carName: "",
+    age: "",
+    fee: "",
+  });
   const [openCloseModal, setOpenCloseModal] = useState(false);
-  const [edit, setEdit] = useState(false);
   const hovers = useRef();
   const audioRef = useRef(null);
   const audioRef2 = useRef(null);
   const [state, setState] = useState(false);
-  const EditButton = () => {
-    setEdit(!edit);
-  };
+
   const hoverHandel = () => {
     audioRef.current.currentTime = 1;
     if (
@@ -41,19 +39,12 @@ const App = () => {
     }
   };
 
-  const removeQoidabuzar = (index) => {
-    const updatedQoidabuzar = [...qoidabuzar];
-    updatedQoidabuzar.splice(index, 1);
-    setQoidabuzar(updatedQoidabuzar);
-  };
-
   const openModal = () => {
     setOpenCloseModal(true);
   };
   const closeModal = () => {
     setOpenCloseModal(false);
   };
-
   const addTable = () => {
     if (
       value.age === "" ||
@@ -73,21 +64,23 @@ const App = () => {
       setValue({ name: "", carName: "", age: "", fee: "" });
     }
   };
-
-  // radar bait
-
-  const [value, setValue] = useState({
-    name: "",
-    carName: "",
-    age: "",
-    fee: "",
-  });
   const changeInput = (e) => {
     setValue((state) => {
-      return { ...state, [e.target.name]: e.target.value };
+      return { ...state, [e.target.name]: e.target.value, id: nanoid() };
     });
   };
-  // radar bait
+  const editData = (item) => {
+    return (
+      setQoidabuzar(() =>
+        qoidabuzar.map?.((el) => (el.id === item.id ? item : el))
+      ),
+      console.log("salom")
+    );
+  };
+  const removeQoidabuzar = (id) => {
+    setQoidabuzar((p) => p.filter((el) => el.id !== id));
+  };
+
   return (
     <div className="market">
       <div className="container">
@@ -96,7 +89,7 @@ const App = () => {
           <span>
             <audio ref={audioRef} src={currentsongs}></audio>
             <audio ref={audioRef2} src={goodJob}></audio>
-            <i class="bx bx-radar bx-spin"></i>BAIT
+            <i className="bx bx-radar bx-spin"></i>BAIT
           </span>
         </h1>
         <div className="row">
@@ -110,14 +103,14 @@ const App = () => {
                 <div className="card-body">
                   <div className="row text-center">
                     <div className="col-5">
-                      <h5>Violator's age</h5>
+                      <h5>Name add</h5>
                       <div className="btn-group">
                         <input
-                          name="age"
+                          name="name"
                           className="form-control bg-transparent text-light"
-                          type="number"
-                          placeholder="Violator' age"
-                          value={value.age}
+                          type="text"
+                          placeholder="Name"
+                          value={value.name}
                           onChange={changeInput}
                         />
                       </div>
@@ -143,23 +136,11 @@ const App = () => {
                         />
                       </div>
                     </div>
+
                     <div
                       className="d-flex align-items-center justify-content-between"
                       style={{ width: "100%" }}
                     >
-                      <div className="col-5">
-                        <h5>Name add</h5>
-                        <div className="btn-group">
-                          <input
-                            name="name"
-                            className="form-control bg-transparent text-light"
-                            type="text"
-                            placeholder="Name"
-                            value={value.name}
-                            onChange={changeInput}
-                          />
-                        </div>
-                      </div>
                       <div className="col-5">
                         <h5>Car name add</h5>
                         <div className="btn-group">
@@ -170,6 +151,19 @@ const App = () => {
                             name="carName"
                             placeholder="Car name"
                             value={value.carName}
+                          />
+                        </div>
+                      </div>
+                      <div className="col-5">
+                        <h5>Violator's age</h5>
+                        <div className="btn-group">
+                          <input
+                            name="age"
+                            className="form-control bg-transparent text-light"
+                            type="number"
+                            placeholder="Violator' age"
+                            value={value.age}
+                            onChange={changeInput}
                           />
                         </div>
                       </div>
@@ -198,7 +192,36 @@ const App = () => {
             )}
           </div>
         </div>
-  <Edit qoidabuzar={qoidabuzar} removeQoidabuzar={removeQoidabuzar} EditButton={EditButton} />
+        <div className="row">
+          <div className="col">
+            <table className="table table-hover table-sm">
+              <thead className="thead-light">
+                <tr>
+                  <th>№</th>
+                  <th>Name</th>
+                  <th>Age</th>
+                  <th>Car name</th>
+                  <th>Fee for violation</th>
+                  <th></th>
+                </tr>
+              </thead>
+            </table>
+            {qoidabuzar.map?.((p, index) => (
+              <Edit
+                key={index}
+                editData={editData}
+                removeQoidabuzar={removeQoidabuzar}
+                index={index}
+                id={p.id}
+                audioRef2={audioRef2}
+                name={p.name}
+                age={p.age}
+                fee={p.fee}
+                carName={p.carName}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

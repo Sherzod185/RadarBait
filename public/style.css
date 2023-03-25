@@ -1,30 +1,32 @@
-body{
+body {
   background-color: #024c62;
   position: relative;
 }
-.market{
+.market {
   background-color: rgba(3, 156, 167, 0.54);
   margin: 15px;
   border-radius: 15px;
   padding: 5px;
 }
-.p-4, .modal-footer, .modal-header{
-  background-color:rgba(4, 77, 83, 0.95);
+.p-4,
+.modal-footer,
+.modal-header {
+  background-color: rgba(4, 77, 83, 0.95);
 }
-.col{
+.col {
   margin-bottom: 10px;
 }
-.ainput{
+.ainput {
   background-color: #ffffff73;
 }
-.ainput:focus{
+.ainput:focus {
   background-color: #ffffff9d;
-
 }
-.ainput::placeholder, .form-control::placeholder{
-color: #ffffffca;
+.ainput::placeholder,
+.form-control::placeholder {
+  color: #ffffffca;
 }
-.value{
+.value {
   display: block;
   background-color: rgb(15, 15, 78);
   color: #fff;
@@ -35,26 +37,62 @@ color: #ffffffca;
   letter-spacing: 1.3px;
   text-align: center;
 }
-.card{
+.card {
   background-color: rgb(2, 51, 82);
 }
-.title{
+.title {
   color: rgb(1, 253, 232);
   text-align: center;
 }
-.title span{
+.title span {
   color: rgb(249, 241, 3);
 }
-.bx-radar{
+.bx-radar {
   color: red;
 }
-button{
+button {
   cursor: pointer;
 }
-*{
-  color:#fff
+* {
+  color: #fff;
 }
-.img-fluid{
-  width:250px ;
+.img-fluid {
+  width: 250px;
   border-radius: 8px;
+}
+.formEdit {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.formEdit input {
+  width: 170px;
+  height: 30px;
+ 
+  margin-left: 15px;
+  margin-right: 15px;
+}
+.formEdit input::placeholder{
+  color: #024c62;
+}
+.tables {
+  width: 90%;
+  display: flex;
+}
+.tables .index {
+  width: 92px;
+}
+.tables .names {
+  width: 180px;
+}
+.tables .age {
+  width: 126px;
+}
+.tables .carname {
+  width: 260px;
+}
+.tables .feee {
+  width: 200px;
 }
