@@ -123,20 +123,20 @@ const App = () => {
                         alt=""
                       />
                     </div>
+
                     <div className="col-5">
-                      <h5> Violator's fee</h5>
+                      <h5>Violator's age</h5>
                       <div className="btn-group">
                         <input
-                          name="fee"
+                          name="age"
                           className="form-control bg-transparent text-light"
                           type="number"
-                          placeholder="Violator's fee"
-                          value={value.fee}
+                          placeholder="Violator' age"
+                          value={value.age}
                           onChange={changeInput}
                         />
                       </div>
                     </div>
-
                     <div
                       className="d-flex align-items-center justify-content-between"
                       style={{ width: "100%" }}
@@ -155,14 +155,14 @@ const App = () => {
                         </div>
                       </div>
                       <div className="col-5">
-                        <h5>Violator's age</h5>
+                        <h5> Violator's fee</h5>
                         <div className="btn-group">
                           <input
-                            name="age"
+                            name="fee"
                             className="form-control bg-transparent text-light"
                             type="number"
-                            placeholder="Violator' age"
-                            value={value.age}
+                            placeholder="Violator's fee"
+                            value={value.fee}
                             onChange={changeInput}
                           />
                         </div>
