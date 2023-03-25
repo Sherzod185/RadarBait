@@ -76,7 +76,7 @@ const Edit = ({
               required
               className="form-control "
               placeholder="Age"
-              type="text"
+              type="number"
               name="age"
             />
             <input
@@ -94,7 +94,7 @@ const Edit = ({
               required
               className="form-control "
               placeholder="Fee"
-              type="text"
+              type="number"
               name="fee"
             />
             <button
